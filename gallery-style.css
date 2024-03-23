@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+/* -------------------------------- GENERAL SETTINGS ---------------------------------*/
+*{
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family:'Cormorant Garamond', serif; 
+}
+
+*, *::after, *::before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    transition: scroll-behavior 2s ease-in-out;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #e8e9eb;
+}
+
+/* -------------------------------- END GENERAL SETTINGS ---------------------------------*/
+
+
+/* ----------------------------------- VARIABLES -------------------------------------*/
+:root{
+    --text_font:'Cormorant Garamond', serif;
+    --title_font:'Barlow Semi Condensed', sans-serif;
+}
+/* -------------------------------- END VARIABLES -------------------------------------*/
+
+
+/* ----------------------------------- NAVIGATION -------------------------------------*/
+
+section {
+    position: relative;
+    /* padding: 100px; */
+} 
+
+:root{
+    --text_font:'Cormorant Garamond', serif;
+    --title_font:'Barlow Semi Condensed', sans-serif;
+}
+
+.header{
+    position: absolute;
+    top:0; left:0; right:0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    padding: 0px 5%;
+}
+.header .logo-name{
+    font-weight: bolder; 
+    padding: 0%;
+    margin: 0%;
+    font-family: var(--title_font);
+    font-size: 1.3rem;
+    color: #1c2826;
+}
+.header .navbar{
+    right: 0;
+}
+.header .navbar ul{
+    list-style: none;
+}
+
+.header .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+.header .navbar ul li a{
+    font-size: 1.3rem;
+    padding: 1.1rem;
+    color: #1c2826;
+    display: block;
+}
+.header .navbar ul li a:hover{
+    background-color:#1c2826;
+    color: #e8e9eb;
+}
+.header .navbar ul li ul{
+    position:absolute;
+    left:0;
+    width:13rem;
+	border: 1px solid #0000001a;
+    background: #e8e9eb;
+    display: none;
+
+}
+
+.header .navbar ul li ul li{
+    width: 100%;
+    border-top: 1px solid #0000001a;
+}
+.header .navbar ul li:focus-within > ul,
+.header .navbar ul li:hover > ul{
+    display: initial;
+}
+
+#menu-bar {
+    display: none;
+}
+
+.header label{
+    font-size: 1.3rem;
+    margin-right: 0.3rem;
+    color:#1c2826;
+    cursor: pointer;
+    display: none;
+}
+/* ----------------------------------- END NAVIGATION -------------------------------------*/
+/* --------------------------------------- BANNER ---------------------------------- */
+.gallery-banner{
+    position: relative;
+    font-size: 16px;
+    margin:0;
+    margin-top: 3rem;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    min-height:40vh;
+    background-color: #e8e9eb;
+}
+/* -------------------------------------- TITLE ANIMATION -------------------------- */
+.text-box{
+    font-size: 40px;
+    font-weight: 900;
+    text-align:center;
+    width:100%;
+}
+
+.animated-text{
+    display: inline-block;
+    height: 116px;
+    overflow: hidden;
+ }
+
+.animated-text div{
+    animation: 15s wordChange;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1);
+    animation-fill-mode: backwards;
+}
+
+.animated-text span{
+    font-family: var(--title_font);
+    font-weight: bolder;
+    position:relative;
+    font-size: 6rem;
+    letter-spacing: 10px;
+    color: #1c2826;
+    display: block;
+    text-align: left;
+}
+
+.animated-text span::after{
+    content:"";
+    position: absolute;
+    left:0;
+    height: 100%;
+    border-left: 2px solid #1c2826;
+    right:-2px;
+    background-color: #e8e9eb;
+    animation: 5s textType;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(10);
+    animation-fill-mode: backwards;
+}
+
+@keyframes textType{
+    0%{
+        left:0;
+    }
+    50%{
+        left:100%;
+    }
+    70%{
+        left: 100%;
+    }
+    100%{
+        left:0;
+    }
+}
+
+@keyframes wordChange{
+    0%{
+        margin-top: 0;
+    }
+    33.333%{
+        margin-top: -116px;
+    }
+    66.666%{
+        margin-top: -232px;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+/* ------------------------------------ END TITLE ANIMATION ---------------------------- */
+/* ---------------------------------------- END BANNER --------------------------------- */
+
+/* ------------------------------------------ MAIN ------------------------------------- */
+.gallery{
+    padding: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: whitesmoke;
+    display: grid;
+    grid-gap:10px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+}
+
+.v-stretch{
+    grid-row: span 2;
+}
+
+.h-stretch{
+    grid-column: span 2;
+}
+
+.big-stretch{
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.gallery div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ------------------------------------------ END MAIN ----------------------------------- */
+
+/* ------------------------------------------ FOOTER ----------------------------------- */
+
+.footer{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #e8e9eb;
+}
+.footer .social_media{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer .social_media li{
+    list-style: none;
+}
+
+.footer .social_media li a{
+    text-decoration: none;
+    margin: 0px 20px;
+}
+.footer .social_media li a img{
+    max-width: 40px;
+}
+
+.footer h4{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:#1c2826;
+    font-family: var(--text_font);
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* ------------------------------------------ END FOOTER ----------------------------------- */
+
+/* ----------------------------------------RESPONSIVE DESIGN ------------------------------ */
+
+/* ----------------------------------------- SMALL SCREENS -------------------------------- */
+@media (max-width: 560px)
+{
+    .header .logo{
+        font-size: 1rem;
+    }
+    .gallery-banner{
+        min-height: 30vh;
+    }
+    .text-box{
+        font-size: 20px;
+    }
+    .animated-text{
+        height: 58px;
+    }
+
+    .animated-text span{
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+
+    @keyframes wordChange{
+        0%{
+            margin-top: 0;
+        }
+        33.333%{
+            margin-top: -58px;
+        }
+        66.666%{
+            margin-top: -116px;
+        }
+        100%{
+            margin-top: 0;
+        }
+    }
+
+    .v-stretch{
+        grid-row: span 1;
+    }
+    .h-stretch{
+        grid-column: span 1;
+    }
+    .big-stretch{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* --------------------------------------- END SMALL SCREENS ------------------------------ */
+
+
+/* ---------------------------------------- MEDIUM SCREENS -------------------------------- */
+@media (max-width: 768px)
+{
+    .gallery-banner{
+        min-height: 25vh;
+    }
+}
+/* -------------------------------------- END MEDIUM SCREENS ------------------------------ */
+
+
+/* ----------------------------------------- WIDE SCREENS -------------------------------- */
+@media (max-width:1010px)
+{
+    .header{
+        padding: 20px;
+    }
+
+    .header label{
+    display: initial;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background: #fff;
+        border-top: 1px solid rgba(0,0,0,.1);
+        display:none;
+    }
+    
+    .header .navbar ul li{
+        width:100%;
+    }
+    .header .navbar ul li ul{
+        position: relative;
+        width:100%;
+    }
+    .header .navbar ul li ul li{
+        background: #e8e9eb;
+    }
+    .header .navbar ul li ul li ul{
+        width: 100%;
+        left:0;
+    }
+
+    #menu-bar:checked ~.navbar{
+        display: initial;
+    }
+}
+
+/* --------------------------------------- END WIDE SCREENS ------------------------------ */

@@ -1,0 +1,388 @@
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic);
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Cormorant Garamond', serif; 
+}
+body{
+    height: 100%;
+    background-color: #e8e9eb;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* ----------------------------------- VARIABLES -------------------------------------*/
+:root{
+    --text_font:'Cormorant Garamond', serif;
+    --title_font:'Barlow Semi Condensed', sans-serif;
+}
+
+.header{
+    position: absolute;
+    top:0; left:0; right:0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    padding: 0px 5%;
+}
+.header .logo-name{
+    font-weight: bolder; 
+    padding: 0%;
+    margin: 0%;
+    font-family: var(--title_font);
+    font-size: 1.3rem;
+    color: #1c2826;
+}
+.header .navbar{
+    right: 0;
+}
+.header .navbar ul{
+    list-style: none;
+}
+
+.header .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+.header .navbar ul li a{
+    font-size: 1.3rem;
+    padding: 1.1rem;
+    color: #1c2826;
+    display: block;
+}
+.header .navbar ul li a:hover{
+    background-color:#1c2826;
+    color: #e8e9eb;
+}
+.header .navbar ul li ul{
+    position:absolute;
+    left:0;
+    width:13rem;
+	border: 1px solid #0000001a;
+    background: #e8e9eb;
+    display: none;
+
+}
+
+.header .navbar ul li ul li{
+    width: 100%;
+    border-top: 1px solid #0000001a;
+}
+.header .navbar ul li:focus-within > ul,
+.header .navbar ul li:hover > ul{
+    display: initial;
+}
+
+#menu-bar {
+    display: none;
+}
+
+.header label{
+    font-size: 1.3rem;
+    margin-right: 0.3rem;
+    color:#1c2826;
+    cursor: pointer;
+    display: none;
+}
+/* ----------------------------------- END NAVIGATION -------------------------------------*/
+
+a {
+	text-decoration: none;
+}
+
+.intro {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
+.right {
+	float: right;
+	height: 100%;
+	width: 60%;
+	padding: 3rem 3rem 3rem 5rem;
+	display: table;
+}
+
+.right > div {
+	display: table-cell;
+	vertical-align: middle;
+}
+.intro span {
+  color: #9f9fa1;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  margin-top:10rem;
+}
+.intro h1 {
+	font-size: 3rem;
+	font-style: var(--text_font);
+	color: #1c2826;
+	margin: 2rem 0rem;
+}
+.intro p{
+	font-size: 1.4rem;
+	color: #9f9fa1;
+    font-weight: 400;
+	margin:1rem 1rem;
+}
+
+.slider {
+	float: left;
+	position: relative;
+	width: 40%;
+	height: 100%;
+}
+.slider li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transition: clip .7s ease-in-out, z-index 0s .7s;
+	clip: rect(0, 100vw, 100vh, 100vw);
+	display: table;
+}
+
+.center-y {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: #e8e9eb;
+}
+.slider h3 {
+	font-size: 4rem;
+	letter-spacing: 0.7rem;
+	display: inline-block;
+	color: #e8e9eb;
+	margin-top: 2rem;
+}
+
+.slider h3{
+	opacity: 0;
+	transition: opacity .7s 0s, transform .5s .2s;
+	transform: translate3d(0, 50%, 0);
+}
+.slider li.current h3, li.current h3 + a {
+	opacity: 1;
+	transition-delay: 1s;
+	transform: translate3d(0, 0, 0);
+}
+.slider li.current {
+	z-index: 1;
+	clip: rect(0, 100vw, 100vh, 0);
+}
+.slider li.prev {
+	clip: rect(0, 0, 100vh, 0);
+}
+.slider nav {
+	position: absolute;
+	bottom: 5%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+}
+.slider nav a {
+	display: inline-block;
+	border-radius: 50%;
+	width: 1rem;
+	height: 1rem;
+    min-width: 12px;
+    min-height: 12px;
+	background: #e8e9eb;
+	margin: 0 1rem;
+    transition: transform .3s;
+}
+.slider a.current_dot {
+	transform: scale(1.4);
+}
+/* ----------------------------------------RESPONSIVE DESIGN ------------------------------ */
+
+/* ----------------------------------------- 1. WIDE SCREENS -------------------------------- */
+@media (min-width: 768px) and (max-width:1300px)
+{	body{
+	overflow-y:scroll;
+	}
+    .header{
+        padding-top:2rem;
+    }
+
+    .header label{
+    display: initial;
+    font-size: 1.5rem;
+    }
+    .header .logo-name{
+        font-size: 1.5rem;
+    }
+    .header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background: #fff;
+        border-top: 1px solid rgba(0,0,0,.1);
+        display:none;
+    }
+    
+    .header .navbar ul li{
+        width:100%;
+        
+    }
+    .header .navbar ul li ul{
+        position: relative;
+        width:100%;
+        
+    }
+    .header .navbar ul li ul li{
+        background: whitesmoke;
+        
+    }
+    .header .navbar ul li a{
+        font-size: 1.5rem;
+    }
+    .header .navbar ul li ul li a{
+        font-size: 1.5rem;
+    }
+    .header .navbar ul li ul li ul{
+        width: 100%;
+        left:0;
+    }
+
+    #menu-bar:checked ~.navbar{
+        display: initial;
+    }
+}
+
+/* --------------------------------------- END WIDE SCREENS ------------------------------ */
+
+/* ---------------------------------------- MEDIUM SCREENS -------------------------------- */
+@media (min-width:525px) and (max-width: 768px) {
+	body{
+		overflow-y:scroll;
+	}
+    .header{
+        padding-top:1rem;
+    }
+    .header label{
+    display: initial;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border-bottom: 1px solid #1c2826;
+    margin-right: 5%;
+    }
+    .header .logo-name{
+        font-size: 1rem;
+    }
+    .header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background: #fff;
+        border-top: 1px solid rgba(0,0,0,.1);
+        display:none;
+    }
+    
+    .header .navbar ul li{
+        width:100%;
+    }
+    .header .navbar ul li ul{
+        position: relative;
+        width:100%;
+    }
+    .header .navbar ul li ul li{
+        background: whitesmoke;
+        
+    }
+    .header .navbar ul li a{
+        font-size: 1.2rem;
+    }
+    .header .navbar ul li ul li a{
+        font-size: 1.2rem;
+    }
+    .header .navbar ul li ul li ul{
+        width: 100%;
+        left:0;
+    }
+    #menu-bar:checked ~.navbar{
+        display: initial;
+    }
+	.right {
+		width: 100%;
+		height: 30%;
+	}
+	.slider {
+		width: 100%;
+		height: 70%;
+	}
+}
+/* -------------------------------------- END MEDIUM SCREENS ------------------------------ */
+/* ----------------------------------------- SMALL SCREENS -------------------------------- */
+@media (max-width: 525px) {
+	body{
+		overflow-y:scroll;
+	}
+    .header{
+        padding-top:1rem;
+    }
+
+    .header label{
+    display: initial;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border-bottom: 1px solid #1c2826;
+    margin-right: 5%;
+    }
+    .header .logo-name{
+        font-size: 1rem;
+    }
+    .header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background: #fff;
+        border-top: 1px solid rgba(0,0,0,.1);
+        display:none;
+    }
+    .header .navbar ul li{
+        width:100%;
+    }
+    .header .navbar ul li ul{
+        position: relative;
+        width:100%;
+    }
+    .header .navbar ul li ul li{
+        background: whitesmoke;
+        
+    }
+    .header .navbar ul li a{
+        font-size: 1.2rem;
+    }
+    .header .navbar ul li ul li a{
+        font-size: 1.2rem;
+    }
+    .header .navbar ul li ul li ul{
+        width: 100%;
+        left:0;
+    }
+    #menu-bar:checked ~.navbar{
+        display: initial;
+    }
+	.right {
+		width: 100%;
+		height: 30%;
+	}
+	.slider {
+		width: 100%;
+		height: 70%;
+	}
+}
